@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web: 
+    build: .
+    ports: 
+      - "3000:3000"
+    volumes:
+      - ".:/lab02"
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    links: 
+      - db
+  db: 
+    image: postgres
+    environment:
+      - POSTGRES_USER=lab02
+      - POSTGRES_PASSWORD=123

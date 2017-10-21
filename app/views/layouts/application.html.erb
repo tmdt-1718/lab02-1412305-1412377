@@ -6,9 +6,74 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home/index">
+          LuArrMail
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLuMail" aria-controls="navbarLuMail" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarLuMail">
+          <ul class="navbar-nav nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link <%= 'active' if params[:controller] == 'mails' %>" href="#">Mail</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <%= 'active' if params[:controller] == 'friends' %>" href="#">Your friends</a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="navbar-nav nav ml-auto">
+        
+         <% if current_user %>
+             <li class="nav-item">               
+               <a class="nav-link" href=<%= logout_path%>> 
+                 Hi, <%= current_user.name %>   
+                 <i class="fa fa-sign-out" aria-hidden="true"></i>             
+               </a>
+             </li>
+         <% else %>
+           <li class="nav-item">
+               <a class="nav-link" href=<%= signup_path%>> 
+                 <i class="fa fa-user-secret" aria-hidden="true"></i>
+                 Sign up
+               </a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href=<%= login_path%>> 
+                 <i class="fa fa-sign-in" aria-hidden="true"></i>
+                 Login
+               </a>
+           </li>      
+         <% end %>
+
+      </div>
+    </nav>
+
+    <div class="container-fluid"> 
+        <% if params[:controller] == 'mails' %>
+          <div class="row pt-3">
+            <div class="col-md-2 pl-5 fixed-left">
+              <%= render "partials/sidebar" %>
+            </div>
+            <div class="col-md-10">
+              <%= yield %>
+            </div>
+          </div>
+        <% else %>
+          <%= yield %>
+        <% end %>
+    </div>  
+    <script src="https://use.fontawesome.com/c30b914bf1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   </body>
+ 
 </html>

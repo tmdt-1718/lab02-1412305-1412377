@@ -17,4 +17,7 @@
 
 $(function(){
     $('#receivers').chosen();
+    $('.email').click(function(){
+        window.location = $(this).data("href");
+    });
 });

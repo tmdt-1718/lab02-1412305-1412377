@@ -25,19 +25,19 @@ ActiveRecord::Schema.define(version: 20171021090114) do
   create_table "mails", force: :cascade do |t|
     t.string "subject"
     t.string "content"
-    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "usermails", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "from"
+    t.integer "to"
     t.bigint "mail_id"
     t.string "status"
+    t.datetime "read_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mail_id"], name: "index_usermails_on_mail_id"
-    t.index ["user_id"], name: "index_usermails_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,5 +49,4 @@ ActiveRecord::Schema.define(version: 20171021090114) do
   end
 
   add_foreign_key "usermails", "mails"
-  add_foreign_key "usermails", "users"
 end

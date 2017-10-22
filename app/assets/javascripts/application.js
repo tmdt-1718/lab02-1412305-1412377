@@ -11,5 +11,10 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require chosen-jquery
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+    $('#receivers').chosen();
+});

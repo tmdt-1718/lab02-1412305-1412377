@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require chosen-compass
  */
  body{
      padding: 58px 0px;

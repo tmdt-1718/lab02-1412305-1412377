@@ -16,11 +16,10 @@ ActiveRecord::Schema.define(version: 20171021090114) do
   enable_extension "plpgsql"
 
   create_table "friends", force: :cascade do |t|
-    t.bigint "user_id"
-    t.decimal "userid"
+    t.integer "user1"
+    t.integer "user2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
   create_table "mails", force: :cascade do |t|
@@ -49,7 +48,6 @@ ActiveRecord::Schema.define(version: 20171021090114) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "friends", "users"
   add_foreign_key "usermails", "mails"
   add_foreign_key "usermails", "users"
 end

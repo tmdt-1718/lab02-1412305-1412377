@@ -12,7 +12,6 @@ class FriendsController < ApplicationController
     end
 
     def create
-        puts params[:user2]
         @friend = Friend.new(user1: current_user.id,  user2: params[:user2])
         
         if @friend.save
@@ -24,8 +23,7 @@ class FriendsController < ApplicationController
     end
 
     def destroy
-        puts params[:user2]
-        Friend.where(user1: current_user.id,  user2: params[:user2]).destroy_all
+        Friend.where(user1: current_user.id,  user2: params[:id]).destroy_all
         redirect_to friends_path
     end
     

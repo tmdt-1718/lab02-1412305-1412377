@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="home/index">
+        <a class="navbar-brand" href="/">
           LuArrMail
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLuMail" aria-controls="navbarLuMail" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,10 +21,10 @@
         <div class="collapse navbar-collapse" id="navbarLuMail">
           <ul class="navbar-nav nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link <%= 'active' if params[:controller] == 'mails' %>" href="#">Mail</a>
+              <a class="nav-link <%= 'active' if params[:controller] == 'mails' %>" href="/mails">Mail</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <%= 'active' if params[:controller] == 'friends' %>" href="#">Your friends</a>
+              <a class="nav-link <%= 'active' if params[:controller] == 'friends' %>" href="/friends">Your friends</a>
             </li>
           </ul>
         </div>
@@ -72,6 +72,7 @@
     </div>  
     <script src="https://use.fontawesome.com/c30b914bf1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.2/rails.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

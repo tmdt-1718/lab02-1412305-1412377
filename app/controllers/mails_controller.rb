@@ -26,5 +26,14 @@ class MailsController < ApplicationController
     end
 
     def show
+        @usermail = Usermail.find_by_mail_id(params[:id])
+        @mail = Mail.find(params[:id])
+        if @usermail.from == current_user.id
+            @receiver = User.find(@usermail.to)
+            @sender =  User.find(current_user.id)
+        else
+            @sender =  User.find(@usermail.from)
+            @receiver = User.find(current_user.id)
+        end
     end
 end

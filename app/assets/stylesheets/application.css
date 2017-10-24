@@ -21,3 +21,7 @@
     width: 380px;
     padding: 30px;
 }
+
+.table-emails{
+    cursor: pointer;
+}

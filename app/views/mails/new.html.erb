@@ -4,25 +4,27 @@
             New Message
         </div>
         <div>   
-            <form method="post" action="mails/create">
+            <form method="post" action="/mails" accept-charset="UTF-8" data-remote="true">
+                <input name="utf8" type="hidden" value="✓">
+                <input type="hidden" name="authenticity_token" value="...">
                 <div class="input-group">
                     <div class="input-group-addon bg-white text-muted" style="width:77px">To</div>
                     <div class="form-control border-left-0">
-                        <select data-placeholder="Choose an email" multiple id="receivers" class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <select name="receivers[]" data-placeholder="Choose an email" multiple id="receivers" class="form-control">
+                        <% @friends.each do |friend| %>
+                            <option value="<%= friend.id %>"> 
+                                <%= friend.name %>
+                                ( <%= friend.email %> )
+                            </option>
+                        <% end %>
                         </select>
                     </div>
                 </div>
-            
                 <div class="input-group">
                     <div class="input-group-addon bg-white text-muted"  style="width:77px">Subject</div>
-                    <input class="form-control form-control-sm border-left-0" type="Text"></input>
+                    <input class="form-control form-control-sm border-left-0" name="subject" type="Text"></input>
                 </div>
-                <textarea class="form-control" rows="10"></textarea>
+                <textarea class="form-control" rows="10" name="content"></textarea>
                 <div class="border border-light">
                     <button type="submit" class="btn btn-info" style="width:100px">Send</button>
                 </div>

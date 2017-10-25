@@ -3,8 +3,8 @@
         <div class="bg-info text-white pl-3">
             New Message
         </div>
-        <div>   
-            <form method="post" action="/mails" accept-charset="UTF-8" data-remote="true">
+        <div>
+            <form method="post" action="/messages" accept-charset="UTF-8" data-remote="true">
                 <input name="utf8" type="hidden" value="✓">
                 <input type="hidden" name="authenticity_token" value="...">
                 <div class="input-group">
@@ -12,7 +12,7 @@
                     <div class="form-control border-left-0">
                         <select name="receivers[]" data-placeholder="Choose an email" multiple id="receivers" class="form-control">
                         <% @friends.each do |friend| %>
-                            <option value="<%= friend.id %>"> 
+                            <option value="<%= friend.id %>">
                                 <%= friend.name %>
                                 ( <%= friend.email %> )
                             </option>
@@ -32,4 +32,3 @@
         </div>
     </div>
 </div>
-

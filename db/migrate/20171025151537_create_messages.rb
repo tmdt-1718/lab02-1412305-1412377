@@ -1,6 +1,6 @@
-class CreateMails < ActiveRecord::Migration[5.1]
+class CreateMessages < ActiveRecord::Migration[5.1]
   def change
-    create_table :mails do |t|
+    create_table :messages do |t|
       t.string :subject
       t.string :content
 

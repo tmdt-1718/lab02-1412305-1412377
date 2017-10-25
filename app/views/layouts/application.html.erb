@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarLuMail">
           <ul class="navbar-nav nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link <%= 'active' if params[:controller] == 'mails' %>" href="/mails">Mail</a>
+              <a class="nav-link <%= 'active' if params[:controller] == 'messages' %>" href="/messages">Message</a>
             </li>
             <li class="nav-item">
               <a class="nav-link <%= 'active' if params[:controller] == 'friends' %>" href="/friends">Your friends</a>
@@ -30,34 +30,34 @@
         </div>
 
         <ul class="navbar-nav nav ml-auto">
-        
+
          <% if current_user %>
-             <li class="nav-item">               
-               <a class="nav-link" href=<%= logout_path%>> 
-                 Hi, <%= current_user.name %>   
-                 <i class="fa fa-sign-out" aria-hidden="true"></i>             
+             <li class="nav-item">
+               <a class="nav-link" href=<%= logout_path%>>
+                 Hi, <%= current_user.name %>
+                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                </a>
              </li>
          <% else %>
            <li class="nav-item">
-               <a class="nav-link" href=<%= signup_path%>> 
+               <a class="nav-link" href=<%= signup_path%>>
                  <i class="fa fa-user-secret" aria-hidden="true"></i>
                  Sign up
                </a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href=<%= login_path%>> 
+               <a class="nav-link" href=<%= login_path%>>
                  <i class="fa fa-sign-in" aria-hidden="true"></i>
                  Login
                </a>
-           </li>      
+           </li>
          <% end %>
 
       </div>
     </nav>
 
-    <div class="container-fluid"> 
-        <% if params[:controller] == 'mails' %>
+    <div class="container-fluid">
+        <% if params[:controller] == 'messages' %>
           <div class="row pt-3">
             <div class="col-md-2 pl-5 fixed-left">
               <%= render "partials/sidebar" %>
@@ -69,7 +69,7 @@
         <% else %>
           <%= yield %>
         <% end %>
-    </div>  
+    </div>
     <script src="https://use.fontawesome.com/c30b914bf1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.2/rails.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -78,5 +78,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
- 
+
 </html>

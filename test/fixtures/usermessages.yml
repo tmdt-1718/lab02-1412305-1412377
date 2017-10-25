@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: 1
+  to: 1
+  message: one
+  status: MyString
+  read_at: 2017-10-25 15:16:14
+
+two:
+  from: 1
+  to: 1
+  message: two
+  status: MyString
+  read_at: 2017-10-25 15:16:14

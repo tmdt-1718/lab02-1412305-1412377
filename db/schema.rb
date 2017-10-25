@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021090114) do
+ActiveRecord::Schema.define(version: 20171025151614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,22 +22,22 @@ ActiveRecord::Schema.define(version: 20171021090114) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "mails", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.string "subject"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "usermails", force: :cascade do |t|
+  create_table "usermessages", force: :cascade do |t|
     t.integer "from"
     t.integer "to"
-    t.bigint "mail_id"
+    t.bigint "message_id"
     t.string "status"
     t.datetime "read_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["mail_id"], name: "index_usermails_on_mail_id"
+    t.index ["message_id"], name: "index_usermessages_on_message_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,5 +48,5 @@ ActiveRecord::Schema.define(version: 20171021090114) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "usermails", "mails"
+  add_foreign_key "usermessages", "messages"
 end

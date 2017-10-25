@@ -1,0 +1,76 @@
+<div class="container">
+<div class="row">
+    <section class="content col-sm-8 col-lg-8 col-md-8"> <br>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1>Friends List</h1>
+                <div class="table-container">
+                    <table class="table table-filter">
+                        <tbody>
+                            <% if @users.nil? %>
+                            <tr>
+                                <p style="text-align:center">
+                                    You have no friends.
+                                </p>
+                            </tr>
+                            <% else %>
+                                <% @users.reject{|u| u.name == current_user.name}.each do |user| %>
+                                    <tr>
+                                        <td/>
+                                        <td>
+                                            <div class="media">
+                                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h4 class="title">
+                                            <%= user.name %>
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <p>
+                                            <%= user.email %>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <% if is_friend(current_user.id, user.id) %>
+                                                <span class="pull-right accept">(Friend)</span>
+                                            <% end %>
+                                        </td>
+                                    </tr>
+                                <% end %>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="col-sm-4 col-lg-4 col-md-4"> <br>
+        <form action="/friends" method="POST" accept-charset="UTF-8" data-remote="true">
+            <input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="authenticity_token" value="...">
+            <select onchange="getval(this);" name = "user2" id="receivers" class="form-control" style="width: 500p">
+                <% @users.reject{|u| u.email == current_user.email}.each do |user| %> 
+                    <option value = <%= user.id%>>
+                        <%= user.name %>&nbsp---
+                        <%= user.email %>
+                    </option>
+                <% end %>
+            </select>
+            <div class="btn-group pull-right">
+                <button class="btn btn-success btn-filter" type="Submit">Add</button>
+                <a onclick="getval(this);" id="deleteId" class="btn btn-success btn-danger" href="" data-method="delete" data-confirm="Are you sure?">Delete</a>
+            </div>
+        </form>
+    </section>
+</div>
+</div>
+
+<script>
+function getval(sel)
+{
+    document.getElementById("deleteId").href = "/friends/" + document.getElementById("receivers").value;
+}
+</script>
+

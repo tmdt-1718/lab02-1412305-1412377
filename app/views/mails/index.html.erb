@@ -3,7 +3,7 @@
     <% @mails.each do |mail| %>
         <tr class= "email <%= 'font-weight-bold' if mail.status == 'received' && mail.from != current_user.id %>" data-href="/mails/<%= mail.mail_id %>" >
             <td>
-                <span> <%= User.find_by_id(mail.from).name%> <%= 'to ' + User.find_by_id(mail.to).name if current_user.id == mail.from %> </span>
+                <span> <%= User.find_by_id(mail.from).name%> <%= 'to ' + User.find_by_id(mail.to).name if current_user.id == mail.from%> </span>
             </td>
             <td>
             <span class="d-inline-block text-truncate" style="max-width: 900px;">

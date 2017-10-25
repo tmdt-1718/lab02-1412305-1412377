@@ -15,9 +15,14 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){
+$(function () {
     $('#receivers').chosen();
-    $('.email').click(function(){
+    $('.email').click(function () {
         window.location = $(this).data("href");
+        $.ajax({
+            url: $(this).data("href"),
+            type: 'PUT',
+            success: function () {}
+        });
     });
 });

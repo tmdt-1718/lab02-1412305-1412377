@@ -1,7 +1,6 @@
 class FriendsController < ApplicationController
-
+    before_action :authorize
     def index
-
         @friends = Friend.all
         @users = User.all
 
@@ -12,10 +11,10 @@ class FriendsController < ApplicationController
 
     def create
         @friend = Friend.new(user1: current_user.id,  user2: params[:user2])
-        
+
         if @friend.save
             redirect_to friends_path
-        else 
+        else
             render :new
         end
 
@@ -25,6 +24,6 @@ class FriendsController < ApplicationController
         Friend.where(user1: current_user.id,  user2: params[:id]).destroy_all
         redirect_to friends_path
     end
-    
+
     helper_method :is_friend
 end

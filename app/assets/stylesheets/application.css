@@ -25,3 +25,8 @@
 .table-emails{
     cursor: pointer;
 }
+
+td#from{
+  overflow: hidden;
+  max-width: 300px;
+}

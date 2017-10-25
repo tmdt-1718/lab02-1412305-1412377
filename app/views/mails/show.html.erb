@@ -8,7 +8,7 @@
             <small>From: <%= @sender.name %> to me</small>
         <% end %>
     </div>
-    <div class="card-body"><%= @mail.content %></div> 
-    <div class="card-footer text-right pr-3">Created at: <%= @mail.created_at.to_formatted_s(:short) %></div>
+    <div class="card-body"><%= @mail.content %></div>
+    <div class="card-footer text-right pr-3">Created at: <%= @mail.created_at.in_time_zone("Hanoi").to_formatted_s(:short) %></div>
   </div>
 </div>

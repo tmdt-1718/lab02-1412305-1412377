@@ -19,6 +19,5 @@ Usermail.create(from: 1, to: 3, mail_id: 1, status: "read", read_at: "2017-10-22
 Usermail.create(from: 1, to: 2, mail_id: 2, status: "read", read_at: "2017-10-22 05:56:25")
 Usermail.create(from: 1, to: 2, mail_id: 4, status: "received")
 Usermail.create(from: 2, to: 1, mail_id: 1, status: "read", read_at: "2017-10-22 05:56:25")
-Usermail.create(from: 2, to: 1, mail_id: 2, status: "received")
 Usermail.create(from: 3, to: 1, mail_id: 3, status: "read", read_at: "2017-10-22 05:56:25")
 Usermail.create(from: 2, to: 3, mail_id: 1, status: "read", read_at: "2017-10-22 05:56:25")

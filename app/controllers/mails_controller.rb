@@ -43,7 +43,7 @@ class MailsController < ApplicationController
 
         @usermail.update_attributes(:status => "read")
         if @usermail.read_at == nil
-            @usermail.update(read_at: Time.now())
+            @usermail.update(read_at: Time.now().in_time_zone("Hanoi").to_formatted_s(:short))
             @usermail.save
         end
     end
